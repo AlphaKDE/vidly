@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
+
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -29,17 +30,23 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-
+##these are the apps that are installed by  default in django 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
+    'django.contrib.admin', #this creates an administration panel for us
+    'django.contrib.auth', # with this we will be able to authenticate users and see if they have permission to perform various tasks
+    'django.contrib.contenttypes', # this is a framework for creating generic relationships within model classes 
+    'django.contrib.sessions', # this is a framework that allows us to temporarily store data about the current user 
+    'django.contrib.messages', # this will display a message when a user does something
+    'django.contrib.staticfiles', #and finally we have static files which is used for managing static files like css
+    #we need to register our movies app here so django can keep track of our model classes we do this by:
+    'movies.apps.MoviesConfig', # we need to pass it the complete Path to the class, once we save the changes, we can than run the "manage.py makemigrations" command.py
+   
+    
 ]
+# check the "0001_initial.py" for futher notes(it can be opened after running the "makemigrations" command) """
 
 MIDDLEWARE = [
+    
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -48,6 +55,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+
 
 ROOT_URLCONF = 'vidly.urls'
 
