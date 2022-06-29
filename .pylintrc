@@ -1,1 +1,1 @@
-load-plugins=pylint-django
+load-plugins=pylint_django 
