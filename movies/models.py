@@ -8,8 +8,8 @@ from django.utils import timezone
 class Genre(models.Model): # we are creating a class called genre, which will inherit all the functionality of the Model class in the models module,
     name = models. CharField(max_length=255) # we are now creating a class attribute and set it to a field class in a data base, we are setting it to a Character field and passing the keyword arg max_length to give it a max character
     
-    def __str__(self): # we are overidding the magic method str to show the name of our genre
-        return self.name    # we want to customize how our genre object is shown on the administrationn website so we can represent it as a string,(although it shows up as an error, the server will run correctly)
+    def __str__(self): # we are overidding the magic method str to show the name of our genre, the compilation error shown is because pylint does not recognize django objects
+        return self.name   # we want to customize how our genre object is shown on the administrationn website so we can represent it as a string,(although it shows up as an error, the server will run correctly)
     """now we need to go to the admin.py module for continued notes """
 
 
