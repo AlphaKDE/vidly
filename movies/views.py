@@ -12,7 +12,7 @@ def index(request): # this function represents the main page of an app
 # it takes an http request object as a parameter(it can be any name) and django will take care of calling the function 
     
 def detail(request,movie_id):
-    movie = get_object_or_404(Movie,id=movie_id) # the get_object_or_404 is used like a try block, if the user enters an invalid id it will prompt http error 404
+    movie = Movie.objects.get(pk=movie_id) # the get_object_or_404 is used like a try block, if the user enters an invalid id it will prompt http error 404
     return render(request,'movies/detail.html',{'movie': movie}) #here we are rendering the html to the server and passing it the Movie model so it knows to take information from the database
    
 

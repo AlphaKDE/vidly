@@ -16,10 +16,16 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path , include # we also import the include function to be able to recieve the url config we made in the movies app
+from api.models import MovieResource
+from . import views 
+
+movie_resource = MovieResource() # we need to create an instance of the MovieResource class to be able to include it in our api
 
 urlpatterns = [
+    path('',views.home),
     path('admin/', admin.site.urls), # every django app has an administrative panel which is a path that maps anything that starts with admit to admin.site.urls
     path('movies/', include('movies.urls')),
+    path('api/', include(movie_resource.urls)) # here we are creating another pass where we tell django any urls that start with api should be handed off to another app
     
     
 #we than add a new path object, that tells our vidly app that any path that starts with movies(first arg) should be handed off to the url configaration in the movies app(second arg) 

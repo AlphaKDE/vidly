@@ -25,6 +25,7 @@ class Movie(models.Model):# we are creating a second class for the Movies inside
 
     number_in_stock = models.IntegerField() # we are using the Interger Field class because the release_year field in the data base is an integer
     
+    
     daily_rate = models.FloatField() # we are using the FloatField class here so we can store the daily rate as $4.56 etc...
 
     """each movie needs to be associated with a genre, to do this we need to create a relationship between the Movies class and Genre class"""

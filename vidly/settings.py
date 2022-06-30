@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles', #and finally we have static files which is used for managing static files like css
     #we need to register our movies app here so django can keep track of our model classes we do this by:
     'movies.apps.MoviesConfig', # we need to pass it the complete Path to the class, once we save the changes, we can than run the "manage.py makemigrations" command.py
+    'api.apps.ApiConfig', # here we are referencing the the config class in the apps module of the api
    
     
 ]
@@ -48,6 +49,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -63,7 +65,7 @@ ROOT_URLCONF = 'vidly.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'templates')], #this allows, our base template to be shared across multiple aplications
+        'DIRS': [os.path.join(BASE_DIR,'templates'),], #this allows, our base template to be shared across multiple aplications
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -127,3 +129,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR,'static')
